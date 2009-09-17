@@ -1,0 +1,381 @@
+﻿<CodeLayout xmlns="http://regionerate.net/schemas/0.7.0.0/CodeLayout.xsd">
+  <!-- Ordered By: SA1201: ElementsMustAppearInTheCorrectOrder -->
+  <ForEach Type="Class">
+    <CreateRegion Title="Dependency Properties" Style="Visible">
+      <PutFields SeparatingLines="1">
+        <Where>
+          <Type Matches="DependencyProperty" />
+        </Where>
+        <OrderBy>
+          <Name />
+        </OrderBy>
+      </PutFields>
+    </CreateRegion>
+    <CreateRegion Title="Fields" Style="Visible">
+      <CreateRegion Title="Constants" Style="Invisible">
+        <!-- Ordered By: SA1203: ConstantsMustAppearBeforeFields -->
+        <PutFields SeparatingLines="1">
+          <Where>
+            <Const Equals="true"/>
+            <Type Matches="(DependencyProperty){0}" />
+          </Where>
+          <OrderBy>
+            <Name />
+          </OrderBy>
+        </PutFields>
+      </CreateRegion>
+      <CreateRegion Title="Readonly fields" Style="Invisible">
+        <PutFields SeparatingLines="1">
+          <Where>
+            <Const Equals="false"/>
+            <ReadOnly Equals="true"/>
+            <Type Matches="(DependencyProperty){0}" />
+          </Where>
+          <OrderBy>
+            <Name />
+          </OrderBy>
+        </PutFields>
+      </CreateRegion>
+      <CreateRegion Title="Instance fields" Style="Invisible">
+        <PutFields SeparatingLines="1">
+          <Where>
+            <Const Equals="false"/>
+            <ReadOnly Equals="false"/>
+            <Type Matches="(DependencyProperty){0}" />
+          </Where>
+          <OrderBy>
+            <Name />
+          </OrderBy>
+        </PutFields>
+      </CreateRegion>
+    </CreateRegion>
+    <CreateRegion Title="Constructors" Style="Invisible">
+      <CreateRegion Title="Public Constructors" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <IsConstructor Equals="true" />
+            <Access Equals="Public" />
+          </Where>
+          <OrderBy>
+            <ParametersCount Direction="Descending" />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+      <CreateRegion Title="Protected Constructors" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <IsConstructor Equals="true" />
+            <Access Equals="Protected" />
+          </Where>
+          <OrderBy>
+            <ParametersCount Direction="Descending" />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+      <CreateRegion Title="Private Constructors" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <IsConstructor Equals="true" />
+            <Access Equals="Private" />
+          </Where>
+          <OrderBy>
+            <ParametersCount Direction="Descending" />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+    </CreateRegion>
+    <!-- Remark: No Ability to Create Regions for Finalizers in Rengerate 0.7.0.0 -->
+    <CreateRegion Title="Delegates" Style="Visible">
+      <PutDelegates>
+        <OrderBy>
+          <Name />
+        </OrderBy>
+      </PutDelegates>
+    </CreateRegion>
+    <CreateRegion Title="Events" Style="Visible">
+      <PutEvents>
+        <OrderBy>
+          <Name />
+        </OrderBy>
+      </PutEvents>
+    </CreateRegion>
+    <CreateRegion Title="Enums" Style="Visible">
+      <PutEnums>
+        <OrderBy>
+          <ValuesCount />
+        </OrderBy>  
+      </PutEnums>
+    </CreateRegion>
+    <!-- Remark: No Ability to Create Regions for Interfaces in Rengerate 0.7.0.0 -->
+    <CreateRegion Title="Properties" Style="Visible">
+      <CreateRegion Title="Public Properties" Style="Invisible">
+        <PutProperties>
+          <Where>
+            <Access Equals="Public"/>
+          </Where>
+          <OrderBy>
+            <Name />
+          </OrderBy>
+        </PutProperties>
+      </CreateRegion>
+      <CreateRegion Title="Protected Properties" Style="Invisible">
+        <PutProperties>
+          <Where>
+            <Access Equals="Protected"/>
+          </Where>
+          <OrderBy>
+            <Name />
+          </OrderBy>
+        </PutProperties>
+      </CreateRegion>
+      <CreateRegion Title="Private Properties" Style="Invisible">
+        <PutProperties>
+          <Where>
+            <Access Equals="Private"/>
+          </Where>
+          <OrderBy>
+            <Name />
+          </OrderBy>
+        </PutProperties>
+      </CreateRegion>
+    </CreateRegion>
+    <!-- Remark: No Ability to Create Regions for Indexers in Rengerate 0.7.0.0 -->
+    <CreateRegion Title="Methods" Style="Visible">
+      <!-- Ordered By: SA1202: ElementsMustBeOrderedByAccess -->
+      <CreateRegion Title="Public Methods" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <Access Equals="Public" />
+          </Where>
+          <OrderBy>
+            <Name />
+            <ParametersCount />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+      <CreateRegion Title="Internal Methods" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <Access Equals="Internal" />
+          </Where>
+          <OrderBy>
+            <Name />
+            <ParametersCount />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+      <CreateRegion Title="Protected Internal Methods" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <Access Equals="Protected" />
+            <Access Equals="Internal" />
+          </Where>
+          <OrderBy>
+            <Name />
+            <ParametersCount />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+      <CreateRegion Title="Protected Methods" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <Access Equals="Protected" />
+          </Where>
+          <OrderBy>
+            <Name />
+            <ParametersCount />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+      <CreateRegion Title="Private Static Methods">
+        <PutMethods>
+          <Where>
+            <Static Equals="true"/>
+            <Access Equals="Private" />
+          </Where>
+          <OrderBy>
+            <Name />
+            <ParametersCount />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+      <CreateRegion Title="Private Instance Methods" Style="Invisible">
+        <PutMethods SeparatingLines="1">
+          <Where>
+            <Static Equals="false"/>
+            <Access Equals="Private" />
+          </Where>
+          <OrderBy>
+            <Name />
+            <ParametersCount />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+    </CreateRegion>
+    <!-- Remark: No Ability to Create Regions for Structs in Rengerate 0.7.0.0 -->
+    <CreateRegion Title="Nested Classes" Style="Visible">
+      <PutNestedClasses>
+        <OrderBy>
+          <Name />
+        </OrderBy>
+      </PutNestedClasses>
+    </CreateRegion>
+  </ForEach>
+  
+  <ForEach Type="Struct">
+    <CreateRegion Title="Data Members" Style="Invisible">
+      <PutFields>
+        <OrderBy>
+          <Name />
+        </OrderBy>
+      </PutFields>
+      <PutProperties>
+        <OrderBy>
+          <Name />
+        </OrderBy>
+      </PutProperties>
+    </CreateRegion>
+    <CreateRegion Title="Enums" Style="Invisible">
+      <PutEnums>
+        <OrderBy>
+          <ValuesCount />
+        </OrderBy>
+      </PutEnums>
+    </CreateRegion>
+    <CreateRegion Title="Methods" Style="Invisible">
+      <PutMethods>
+        <OrderBy>
+          <Name />
+          <ParametersCount />
+        </OrderBy>
+      </PutMethods>
+    </CreateRegion>
+  </ForEach>
+
+  <!-- Ordered By: SA1201: ElementsMustAppearInTheCorrectOrder -->
+  <ForEach Type="Interface">
+    <CreateRegion Title="Delegates" Style="Invisible">
+      <PutDelegates>
+        <OrderBy>
+          <Name />
+        </OrderBy>
+      </PutDelegates>
+    </CreateRegion>
+    <CreateRegion Title="Events" Style="Invisible">
+      <PutEvents>
+        <OrderBy>
+          <Name />
+        </OrderBy>
+      </PutEvents>
+    </CreateRegion>
+    <CreateRegion Title="Enums" Style="Invisible">
+      <PutEnums>
+        <OrderBy>
+          <ValuesCount />
+        </OrderBy>
+      </PutEnums>
+    </CreateRegion>
+    <!-- Remark: No Ability to Create Regions for Interfaces in Rengerate 0.7.0.0 -->
+    <CreateRegion Title="Properties" Style="Invisible">
+      <CreateRegion Title="Public Properties" Style="Invisible">
+        <PutProperties>
+          <Where>
+            <Access Equals="Public"/>
+          </Where>
+          <OrderBy>
+            <Name />
+          </OrderBy>
+        </PutProperties>
+      </CreateRegion>
+      <CreateRegion Title="Protected Properties" Style="Invisible">
+        <PutProperties>
+          <Where>
+            <Access Equals="Protected"/>
+          </Where>
+          <OrderBy>
+            <Name />
+          </OrderBy>
+        </PutProperties>
+      </CreateRegion>
+      <CreateRegion Title="Private Properties" Style="Invisible">
+        <PutProperties>
+          <Where>
+            <Access Equals="Private"/>
+          </Where>
+          <OrderBy>
+            <Name />
+          </OrderBy>
+        </PutProperties>
+      </CreateRegion>
+    </CreateRegion>
+    <CreateRegion Title="Methods" Style="Invisible">
+      <!-- Ordered By: SA1202: ElementsMustBeOrderedByAccess -->
+      <CreateRegion Title="Public Methods" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <Access Equals="Public" />
+          </Where>
+          <OrderBy>
+            <Name />
+            <ParametersCount />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+      <CreateRegion Title="Internal Methods" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <Access Equals="Internal" />
+          </Where>
+          <OrderBy>
+            <Name />
+            <ParametersCount />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+      <CreateRegion Title="Protected Internal Methods" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <Access Equals="Protected" />
+            <Access Equals="Internal" />
+          </Where>
+          <OrderBy>
+            <Name />
+            <ParametersCount />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+      <CreateRegion Title="Protected Methods" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <Access Equals="Protected" />
+          </Where>
+          <OrderBy>
+            <Name />
+            <ParametersCount />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+      <CreateRegion Title="Private Methods" Style="Invisible">
+        <PutMethods>
+          <Where>
+            <Access Equals="Private" />
+          </Where>
+          <OrderBy>
+            <Name />
+            <ParametersCount />
+          </OrderBy>
+        </PutMethods>
+      </CreateRegion>
+    </CreateRegion>
+  </ForEach>
+  
+  <Configuration>
+    <Symbol>
+      <HiddenDragon />
+    </Symbol>
+    <Unpack>
+      <Regions ThatMatch="\[rgn\]" />
+    </Unpack>
+    <Rendering ShowCount="false" Tabs="2" />
+  </Configuration>
+</CodeLayout>

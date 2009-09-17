@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Notifying command property</Title>
+			<Shortcut>cmdprop</Shortcut>
+			<Description>Creates a new command property that is updated when any property changes.</Description>
+			<Author>Daniel Simon</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<ToolTip>The name of the command property.</ToolTip>
+					<Default>Name</Default>
+				</Literal>
+        <Literal>
+          <ID>field</ID>
+          <ToolTip>The name of the backing field.</ToolTip>
+          <Default>field</Default>
+        </Literal>
+        <Literal>
+          <ID>description</ID>
+          <ToolTip>The description of the command.</ToolTip>
+          <Default>description</Default>
+        </Literal>
+            </Declarations>
+			<Code Language="csharp">
+        <![CDATA[/// <summary>
+        /// The command that $description$.
+        /// </summary>
+        private ICommand $field$;
+        
+        /// <summary>
+        /// Gets the command that $description$.
+        /// </summary>
+        public ICommand $name$
+        {
+            get
+            { 
+                return this.$field$;
+            }
+            
+            private set
+            { 
+               this.$field$ = value;
+               this.OnCommandChanged("$name$", value);
+            }
+        }
+        ]]>
+        </Code>
+    </Snippet>
+</CodeSnippet>
+</CodeSnippets>

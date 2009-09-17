@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Notifying property</Title>
+      <Shortcut>notifyprop</Shortcut>
+      <Description>Creates a new property that sends PropertyChanged events.</Description>
+      <Author>Daniel Simon</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <ToolTip>The name of the property.</ToolTip>
+          <Default>Name</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>field</ID>
+          <ToolTip>The name of the backing field.</ToolTip>
+          <Default>field</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>type</ID>
+          <ToolTip>The type of the property.</ToolTip>
+          <Default>type</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>description</ID>
+          <ToolTip>The description of the property.</ToolTip>
+          <Default>description</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[/// <summary>
+        /// $description$.
+        /// </summary>
+        private $type$ $field$;
+        
+        /// <summary>
+        /// Gets or sets $description$.
+        /// </summary>
+        public $type$ $name$
+        {
+            get
+            { 
+                return this.$field$;
+            }
+            
+            set
+            { 
+               this.$field$ = value;
+               this.OnNotifyPropertyChanged("$name$");
+            }
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
